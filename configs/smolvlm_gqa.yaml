@@ -1,0 +1,18 @@
+# vlm-pid-analysis/configs/smolvlm_gqa.yaml
+
+# Configuration for SmolVLM on GQA
+model:
+  quantization: True # Use 4-bit quantization on CUDA if available
+
+dataloader:
+  batch_size: 1
+  split: "testdev_balanced"
+  shuffle: False
+
+run:
+  num_samples: 1       # NO_SAMPLES
+  start_index: 0         # START_INDEX
+  n_clusters: 10         # n_clusters for KMeans discretization
+  pca_components: 10     # n_components for PCA before clustering
+  ipfp_max_iters: 100    # max_outer iteration for IPFP (get_measure passes 100)
+  results_sub_dir: "smolvlm/gqa" # Used by the run script for saving
